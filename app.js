@@ -160,5 +160,5 @@ botui.message.add({
 });
 
 function sendcomplete(){
-    window.parent.parent.postMessage({"message": "completed","text":response}, "*");
+    window.top.postMessage({"message": "completed","text":response}, "*");
 };
