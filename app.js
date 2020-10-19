@@ -12,26 +12,10 @@ botui.message.add({
         content:'I am handling your request today. What can I do for you?'
     });
 }).then(function(){
-    return botui.action.text({
-        action: {
-          placeholder: 'Enter your message.'
-        }
-    
-    });
-}).then(function (res) { 
-        console.log(res.value);
-        response.push(res.value);
-}).then(function(){
-    return botui.message.add({
-        delay:700,
-        loading: true,
-        content:'I do not understand what you said. Can you choose one of the options below?'
-    });
-}).then(function(){
     return botui.action.button({
         action: [
           { text: 'Check an order status',
-            value: 'Check an order status'
+            value: 'Check an order status' 
           },
           { text: 'Return or exchange item(s)',
             value: 'Return or exchange item(s)'
@@ -39,29 +23,13 @@ botui.message.add({
         ]
     });
 }).then(function (res) { 
-        console.log(res.value);
+        console.log(res.value); 
         response.push(res.value);        
 }).then(function(){
     return botui.message.add({
         delay:900,
         loading: true,
         content:'I can help you with that. First, could you tell me why you need to replace or return this textbook in more details?'
-    });
-}).then(function(){
-    return botui.action.text({
-        action: {
-            placeholder: 'Enter your message.'
-        }
-          
-    });
-}).then(function (res) { 
-        console.log(res.value);
-        response.push(res.value);  
-}).then(function(){
-    return botui.message.add({
-        delay:700,
-        loading: true,
-        content:'I did not quite get what you are saying. Please choose an option below.'
     });
 }).then(function(){
     return botui.action.button({
@@ -89,7 +57,7 @@ botui.message.add({
 }).then(function(){
     return botui.action.text({
         action: {
-          placeholder: 'Enter your message.'
+          placeholder: 'Enter your message here.'
         }
     
     });
@@ -113,22 +81,6 @@ botui.message.add({
         delay:700,
         loading: true,
         content:'Would you still like to exchange the book?'
-    });
-}).then(function(){
-    return botui.action.text({
-        action: {
-          placeholder: 'Enter your message.'
-        }
-    
-    });
-}).then(function (res) { 
-        console.log(res.value); 
-        response.push(res.value);
-}).then(function(){
-    return botui.message.add({
-        delay:700,
-        loading: true,
-        content:'I cannot process your message. Please select one.'
     });
 }).then(function(){
     return botui.action.button({
@@ -160,5 +112,5 @@ botui.message.add({
 });
 
 function sendcomplete(){
-    window.parent.postMessage({"message": "completed","text":JSON.stringify(response)}, "*");
+    window.parent.postMessage({"message": "completed","text":response}, "*");
 };
