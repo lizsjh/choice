@@ -55,7 +55,7 @@ botui.message.add({
         delay:900,
         loading: true,
         content:'We are currently experiencing a system error. Please contact us again later.'
-    });'
+    });
  });
 
 
