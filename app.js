@@ -20,8 +20,8 @@ botui.message.add({
           { text: 'Price overcharge',
             value: 'Price overcharge' 
           },
-          { text: 'Return or exchange item(s)',
-            value: 'Return or exchange item(s)'
+          { text: 'Exchange item(s)',
+            value: 'Exchange item(s)'
           }
         ]
     });
@@ -48,7 +48,7 @@ botui.message.add({
     return botui.message.add({
         delay:900,
         loading: true,
-        content:'Alright. I am checking your order right now. Please give me a moment.'
+        content:'Alright. I will process your request. Please give me a moment.'
     });
 }).then(function(){
     sendcomplete();
