@@ -32,7 +32,30 @@ botui.message.add({
     return botui.message.add({
         delay:700,
         loading: true,
-        content:'I can help you with that. First, could you tell me your order number?'
+        content:'I can help you with that. First, could you tell me why you need to replace or return this textbook?'
+    });
+}).then(function(){
+    return botui.action.button({
+        action: [
+          { text: 'Damage in the item',
+            value: 'Damage in the item' 
+          },
+          { text: 'Incorrect item delivered',
+            value: 'Incorrect item delivered' 
+          },
+          { text: 'Need a different edition',
+            value: 'Need a different edition'
+          }
+        ]
+    });
+}).then(function (res) { 
+        console.log(res.value); 
+        response.push(res.value);   
+}).then(function(){
+    return botui.message.add({
+        delay:700,
+        loading: true,
+        content:'Got it. Could you input your order number below?'
     });
 }).then(function(){
     return botui.action.text({
@@ -48,13 +71,13 @@ botui.message.add({
     return botui.message.add({
         delay:900,
         loading: true,
-        content:'Got it. Please allow me few seconds for pulling up your order.'
+        content:'Alright. I am checking your order right now. Please give me a moment.'
     });
 }).then(function(){
     return botui.message.add({
         delay:1200,
         loading: true,
-        content:'Which item(s) is missing?'
+        content:'I have pulled up your order. The 3rd edition is available, and you will be charged an additional $50.'
     });
 }).then(function(){
     return botui.message.add({
