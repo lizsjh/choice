@@ -119,9 +119,6 @@ botui.message.add({
 }).then(function (res) { 
         console.log(res.value); 
         response.push(res.value);   
-}).then(function (res) { 
-    console.log(res.value);
-    response.push(res.value);
 }).then(function(){
     return botui.message.add({
         delay:700,
