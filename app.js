@@ -2,12 +2,12 @@ var botui=new BotUI('app');
 const response=new Array();
 
 botui.message.add({
-    delay:500,
+    delay:700,
     loading: true,
     content: 'Hello. This is Taylor, and I am a bot created by the customer service department.'
 }).then(function(){
     return botui.message.add({
-        delay:700,
+        delay:500,
         loading: true,
         content:'I am handling your request today. What brings you here?'
     });
@@ -30,20 +30,27 @@ botui.message.add({
         response.push(res.value);   
 }).then(function(){
     return botui.message.add({
-        delay:700,
+        delay:800,
         loading: true,
-        content:'I can help you with that. First, could you tell me your order number?'
+        content:'I can help you with that. First, could you tell me why you need to replace or return this textbook?'
     });
 }).then(function(){
-    return botui.action.text({
-        action: {
-          placeholder: 'Enter your message.'
-        }
-    
+    return botui.action.button({
+        action: [
+          { text: 'Missing item',
+            value: 'Missing item' 
+          },
+          { text: 'Check order status',
+            value: 'Check order status' 
+          },
+          { text: 'Return/exchange item(s)',
+            value: 'Return/exchange item(s)'
+          }
+        ]
     });
 }).then(function (res) { 
-    console.log(res.value);
-    response.push(res.value);
+        console.log(res.value); 
+        response.push(res.value);   
 }).then(function(){
     return botui.message.add({
         delay:700,
